@@ -27,6 +27,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
@@ -108,6 +109,33 @@ class OrderType extends AbstractType
         ])->add('redirect_to', HiddenType::class, [
             'mapped' => false,
         ]);
+
+        $builder->add('credit_card_number1', TextType::class, [
+            'required' => false,
+            'mapped' => false,
+            'constraints' => [
+                new Length(['min' => 4, 'max' => 4]),
+            ],
+        ])->add('credit_card_number2', TextType::class, [
+            'required' => false,
+            'mapped' => false,
+            'constraints' => [
+                new Length(['min' => 4, 'max' => 4]),
+            ],
+        ])->add('credit_card_number3', TextType::class, [
+            'required' => false,
+            'mapped' => false,
+            'constraints' => [
+                new Length(['min' => 4, 'max' => 4]),
+            ],
+        ])->add('credit_card_number4', TextType::class, [
+            'required' => false,
+            'mapped' => false,
+            'constraints' => [
+                new Length(['min' => 4, 'max' => 4]),
+            ],
+        ]);
+
 
         if ($this->baseInfoRepository->get()->isOptionPoint() && $this->requestContext->getCurrentUser()) {
             $builder->add('use_point', IntegerType::class, [

@@ -55,6 +55,7 @@
         "setasign/fpdi": "^2.2",
         "skorp/detect-incompatible-samesite-useragents": "^1.0",
         "softcreatr/jsonpath": "0.7.5",
+        "stripe/stripe-php": "^12.7",
         "symfony/asset": "^5.4",
         "symfony/cache": "^5.4",
         "symfony/config": "^5.4",
@@ -186,7 +187,7 @@
     },
     "config": {
         "platform": {
-            "php": "7.4.0"
+            "php": "8.1.24"
         },
         "preferred-install": {
             "*": "dist"
@@ -198,6 +199,17 @@
             "kylekatarnls/update-helper": true,
             "ec-cube/plugin-installer": true,
             "symfony/flex": true
+        }
+    },
+    "repositories": {
+        "eccube": {
+            "type": "composer",
+            "url": "https://package-api-c2.ec-cube.net/v42",
+            "options": {
+                "http": {
+                    "header": ["X-ECCUBE-KEY: CgfRXovjvE4GYpLznvj92rm2HzO4pw0RmwKmXM6g"]
+                }
+            }
         }
     }
 }
